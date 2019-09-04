@@ -62,13 +62,32 @@ var model = {
 
 };
 
-model.fire("53");
-model.fire("06");
-model.fire("16");
-model.fire("26");
-model.fire("34");
-model.fire("24");
-model.fire("44");
-model.fire("12");
-model.fire("11");
-model.fire("10");
+var controller = {
+  guesses: 0,
+  parseGuess: function (guess) {
+    var alphabet = ["A","B","C","D","E","F","G"];
+
+    if (guess === null || guess.length !== 2) {
+      alert("Oops, please enter a letter and a number on the board.");
+    } else {
+      firstChar = guess.charAt(0);
+      var row = alphabet.indexOf(firstChar);
+      var column = guess.charAt(1);
+
+      if (isNaN(row) || isNaN(column)) {
+        alert("Oops, that isn't on the board.");
+      } else if (row < 0 || row >= model.boardSize || column < 0 || column >= model.boardSize) {
+        alert("Oops, that's off the board!");
+      } else {
+        return row + column;
+      }
+    }
+    return null;
+  }
+};
+
+console.log(controller.parseGuess("A0"));
+console.log(controller.parseGuess("B6"));
+console.log(controller.parseGuess("G3"));
+console.log(controller.parseGuess("H0"));
+console.log(controller.parseGuess("A7"));
