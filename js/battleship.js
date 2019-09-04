@@ -97,7 +97,7 @@ var model = {
     for (var i = 0; i < this.numShips; i++) {
       var ship = model.ships[i];
       for (j = 0; j < location.length; j++) {
-        if (ship.locations.indexOf(location[j]) >= 0) {
+        if (ship.locations.indexOf(locations[j]) >= 0) {
           return true;
         }
       }
