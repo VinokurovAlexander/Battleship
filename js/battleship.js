@@ -127,7 +127,6 @@ function parseGuess(guess) {
     alert("Oops, please enter a letter and a number on the board.");
   } else {
     firstChar = guess.charAt(0);
-    firstChar.toUpperCase();
     var row = alphabet.indexOf(firstChar.toUpperCase());
     var column = guess.charAt(1);
 
